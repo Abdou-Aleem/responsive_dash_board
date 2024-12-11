@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:responsive_dash_board/utils/app_images.dart';
+import 'package:responsive_dash_board/utils/app_styles.dart';
 
 class MyCard extends StatelessWidget {
   const MyCard({super.key});
@@ -7,15 +9,60 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 420/215,
+      aspectRatio: 420 / 215,
       child: Container(
         decoration: ShapeDecoration(
-          image: DecorationImage(image: 
-          AssetImage(Assets.imagesCardBackground)),
-          color: Color(0xFF4EB7F2),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12)
-          )),
+            image:
+                DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(Assets.imagesCardBackground)),
+            color: Color(0xFF4EB7F2),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12))),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            ListTile(
+              contentPadding: EdgeInsets.only(left: 31, right: 42, top: 16),
+              title: Text(
+                'Name Card',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text(
+                'Syah Bandi',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.bold),
+              ),
+              trailing: SvgPicture.asset(Assets.imagesGallery),
+            ),
+            Expanded(child: SizedBox()),
+            Padding(
+              
+              padding: const EdgeInsets.only(right: 48 - 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    '0918 8124 0042 8129',
+                    style: AppStyles.styleSemiBold24(context)
+                        .copyWith(color: Colors.white),
+                  ),
+                  Text('12/40 - 124',
+                  style: AppStyles.styleRegular16(context).copyWith(color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 54 - 28,),
+          ],
+        ),
       ),
       );
   }
