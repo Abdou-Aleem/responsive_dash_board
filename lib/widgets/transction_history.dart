@@ -12,13 +12,7 @@ class TransctionHistory extends StatelessWidget {
       children: [
         TransctionHistoryHeader(),
         SizedBox(height: 20,),
-        Text('13 April 2022', style:TextStyle(
-          color: Color(0xFFAAAAAA),
-          fontSize: 16,
-          fontFamily: 'Montserrat',
-          fontWeight: FontWeight.w500,
-          height: 0,
-        ) ,),
+        Text('13 April 2022', style:AppStyles.styleMedium16(context) ,),
         SizedBox(height: 16,),
         TransctionHistoryListView(),
 
